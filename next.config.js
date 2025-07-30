@@ -1,6 +1,6 @@
 const nextConfig = {
   /* config options here */
-   "type": "module"
+  //  "type": "module"
 };
 
 export default nextConfig;
