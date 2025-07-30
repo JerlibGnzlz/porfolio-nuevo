@@ -1,8 +1,56 @@
-"use client"
-import { Box, Typography, Container, Grid, Avatar, Fade } from "@mui/material"
-import { useInView } from "react-intersection-observer"
-import { useEffect, useState } from "react"
-import { useLanguage } from "../contexts/LanguageContext"
+import { Avatar, Box, Container, Fade, Grid, Typography } from "@mui/material";
+import {
+    SiJavascript,
+    SiHtml5,
+    SiCss3,
+    SiTypescript,
+    SiReact,
+    SiNextdotjs,
+    SiRedux,
+    SiNodedotjs,
+    SiExpress,
+    SiMongodb,
+    SiMui,
+    SiAntdesign,
+    SiSequelize,
+    SiPrisma,
+    SiPostgresql,
+    SiMysql,
+    SiSwagger,
+    SiPostman,
+    SiJira,
+    SiLinux,
+    SiScrumalliance,
+} from "react-icons/si";
+import { ReactNode, useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { useLanguage } from "../contexts/LanguageContext";
+
+const techIconMap: { [key: string]: ReactNode } = {
+    "JavaScript (ES6+)": <SiJavascript />,
+    HTML: <SiHtml5 />,
+    CSS: <SiCss3 />,
+    TypeScript: <SiTypescript />,
+    React: <SiReact />,
+    "Next.js": <SiNextdotjs />,
+    "Redux Toolkit": <SiRedux />,
+    "React Context": <SiReact />,
+    "Node.js": <SiNodedotjs />,
+    Express: <SiExpress />,
+    MongoDB: <SiMongodb />,
+    MUI: <SiMui />,
+    "Ant Design": <SiAntdesign />,
+    Sequelize: <SiSequelize />,
+    Prisma: <SiPrisma />,
+    Postgres: <SiPostgresql />,
+    MySQL: <SiMysql />,
+    Scrum: <SiScrumalliance />,
+    Swagger: <SiSwagger />,
+    Postman: <SiPostman />,
+    Jira: <SiJira />,
+    Linux: <SiLinux />,
+};
+
 
 const About = () => {
     const [mounted, setMounted] = useState(false)
@@ -38,7 +86,7 @@ const About = () => {
                         <Typography
                             variant="h2"
                             sx={{
-                                mb: 6,
+                                mb: 20,
                                 textAlign: "center",
                                 color: "text.primary",
                                 position: "relative",
@@ -97,24 +145,23 @@ const About = () => {
                                 </Typography>
 
                                 <Grid container spacing={2} sx={{ mt: 1 }}>
-                                    {["JavaScript (ES6+)", "HTML", "CSS", "TypeScript", "React", "Node.js", "Next.js", "Redux Toolkit", "React Context", "Express", "MongoDB", "MUI", "Ant Design", "Sequelize", "Prisma", "Postgres", "MySQL", "Scrum", "Swagger", "Postman", "Jmeter", "Jira", "Linux"].map((tech) => (
-                                        <Grid item xs={5} key={tech}>
+                                    {Object.keys(techIconMap).map((tech) => (
+                                        <Grid item xs={6} sm={4} md={3} key={tech} sx={{ display: "flex", alignItems: "center" }}>
                                             <Typography
                                                 variant="body2"
                                                 sx={{
                                                     color: "text.secondary",
-                                                    "&::before": {
-                                                        content: '"▹"',
-                                                        color: "primary.main",
-                                                        mr: 2,
-                                                    },
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 1,
                                                 }}
                                             >
-                                                {tech}
+                                                {techIconMap[tech]} {tech}
                                             </Typography>
                                         </Grid>
                                     ))}
                                 </Grid>
+
                             </Grid>
 
                             <Grid item xs={12} md={4}>
