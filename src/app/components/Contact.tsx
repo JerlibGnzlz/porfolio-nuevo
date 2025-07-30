@@ -6,7 +6,7 @@ import { Box, Typography, Container, Grid, TextField, Button, Paper, Alert, Fade
 import { Send, Email, Phone, LocationOn, LinkedIn, GitHub } from "@mui/icons-material"
 import { useInView } from "react-intersection-observer"
 import { useLanguage } from "../contexts/LanguageContext"
-import emailjs from "emailjs-com"
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
