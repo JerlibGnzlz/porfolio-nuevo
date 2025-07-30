@@ -6,7 +6,7 @@ import { Button, Typography, Box } from '@mui/material'
 import LockIcon from '@mui/icons-material/Lock'
 import { motion } from 'framer-motion'
 
-const MotionBox = motion(Box)
+const MotionBox = motion.create(Box)
 
 export default function NotFound() {
     return (
