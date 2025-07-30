@@ -45,7 +45,7 @@ const techIconMap: { [key: string]: ReactNode } = {
     "Ant Design": <SiAntdesign />,
     Sequelize: <SiSequelize />,
     Prisma: <SiPrisma />,
-    Postgres: <SiPostgresql />,
+    PostgreSQL: <SiPostgresql />,
     MySQL: <SiMysql />,
     Scrum: <SiScrumalliance />,
     Swagger: <SiSwagger />,
