@@ -1,4 +1,7 @@
-import { Avatar, Box, Container, Fade, Grid, Typography } from "@mui/material";
+import { Avatar, Box, Container, Fade, Typography } from "@mui/material";
+// Remove the above line and use the following import instead:
+import Grid from "@mui/material/Grid";
+
 import {
     SiJavascript,
     SiHtml5,

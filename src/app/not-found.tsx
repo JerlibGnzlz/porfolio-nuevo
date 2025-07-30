@@ -22,13 +22,13 @@ export default function NotFound() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-            <motion.div
+            <MotionBox
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.4 }}
             >
                 <LockIcon sx={{ fontSize: 70, color: "primary.main", mb: 2 }} />
-            </motion.div>
+            </MotionBox>
 
             <Typography variant="h4" gutterBottom fontWeight="bold">
                 El repositorio es privado

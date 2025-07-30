@@ -2,11 +2,13 @@
 
 import type React from "react"
 import { useState, useEffect } from "react"
-import { Box, Typography, Container, Grid, TextField, Button, Paper, Alert, Fade, IconButton } from "@mui/material"
+import { Box, Typography, Container, TextField, Button, Paper, Alert, Fade, IconButton } from "@mui/material"
 import { Send, Email, Phone, LocationOn, LinkedIn, GitHub } from "@mui/icons-material"
 import { useInView } from "react-intersection-observer"
 import { useLanguage } from "../contexts/LanguageContext"
-import emailjs from "@emailjs/browser";
+import emailjs from "emailjs-com";
+import Grid from '@mui/material/Grid'
+
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -176,98 +178,98 @@ const Contact = () => {
                         </Typography>
 
                         <Grid container spacing={6}>
-                            <Grid item xs={12} md={6}>
-                                <Paper
-                                    elevation={3}
+                            {/* <Grid item xs={12} md={6}> */}
+                            <Paper
+                                elevation={3}
+                                sx={{
+                                    p: 4,
+                                    bgcolor: "background.default",
+                                    border: "1px solid rgba(100, 255, 218, 0.1)",
+                                    height: "100%",
+                                }}
+                            >
+                                <Typography
+                                    variant="h5"
                                     sx={{
-                                        p: 4,
-                                        bgcolor: "background.default",
-                                        border: "1px solid rgba(100, 255, 218, 0.1)",
-                                        height: "100%",
+                                        mb: 3,
+                                        color: "text.primary",
+                                        fontWeight: "bold",
                                     }}
                                 >
-                                    <Typography
-                                        variant="h5"
+                                    {t("contactInfo")}
+                                </Typography>
+
+                                {contactInfo.map((info, index) => (
+                                    <Box
+                                        key={index}
                                         sx={{
+                                            display: "flex",
+                                            alignItems: "center",
                                             mb: 3,
-                                            color: "text.primary",
-                                            fontWeight: "bold",
+                                            p: 2,
+                                            borderRadius: 2,
+                                            transition: "background-color 0.3s ease",
+                                            "&:hover": {
+                                                bgcolor: "rgba(100, 255, 218, 0.05)",
+                                            },
                                         }}
                                     >
-                                        {t("contactInfo")}
-                                    </Typography>
-
-                                    {contactInfo.map((info, index) => (
-                                        <Box
-                                            key={index}
-                                            sx={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                mb: 3,
-                                                p: 2,
-                                                borderRadius: 2,
-                                                transition: "background-color 0.3s ease",
-                                                "&:hover": {
-                                                    bgcolor: "rgba(100, 255, 218, 0.05)",
-                                                },
-                                            }}
-                                        >
-                                            <Box sx={{ mr: 3 }}>{info.icon}</Box>
-                                            <Box>
-                                                <Typography variant="subtitle2" sx={{ color: "text.secondary", mb: 0.5 }}>
-                                                    {info.title}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body1"
-                                                    component="a"
-                                                    href={info.link}
-                                                    sx={{
-                                                        color: "text.primary",
-                                                        textDecoration: "none",
-                                                        "&:hover": {
-                                                            color: "primary.main",
-                                                        },
-                                                    }}
-                                                >
-                                                    {info.value}
-                                                </Typography>
-                                            </Box>
-                                        </Box>
-                                    ))}
-
-                                    <Box sx={{ mt: 4 }}>
-                                        <Typography
-                                            variant="h6"
-                                            sx={{
-                                                mb: 2,
-                                                color: "text.primary",
-                                            }}
-                                        >
-                                            {t("followSocial")}
-                                        </Typography>
-                                        <Box sx={{ display: "flex", gap: 2 }}>
-                                            {socialLinks.map((social, index) => (
-                                                <IconButton
-                                                    key={index}
-                                                    href={social.url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    sx={{
-                                                        color: "text.secondary",
-                                                        border: "1px solid rgba(100, 255, 218, 0.3)",
-                                                        "&:hover": {
-                                                            color: "primary.main",
-                                                            bgcolor: "rgba(100, 255, 218, 0.1)",
-                                                        },
-                                                    }}
-                                                >
-                                                    {social.icon}
-                                                </IconButton>
-                                            ))}
+                                        <Box sx={{ mr: 3 }}>{info.icon}</Box>
+                                        <Box>
+                                            <Typography variant="subtitle2" sx={{ color: "text.secondary", mb: 0.5 }}>
+                                                {info.title}
+                                            </Typography>
+                                            <Typography
+                                                variant="body1"
+                                                component="a"
+                                                href={info.link}
+                                                sx={{
+                                                    color: "text.primary",
+                                                    textDecoration: "none",
+                                                    "&:hover": {
+                                                        color: "primary.main",
+                                                    },
+                                                }}
+                                            >
+                                                {info.value}
+                                            </Typography>
                                         </Box>
                                     </Box>
-                                </Paper>
-                            </Grid>
+                                ))}
+
+                                <Box sx={{ mt: 4 }}>
+                                    <Typography
+                                        variant="h6"
+                                        sx={{
+                                            mb: 2,
+                                            color: "text.primary",
+                                        }}
+                                    >
+                                        {t("followSocial")}
+                                    </Typography>
+                                    <Box sx={{ display: "flex", gap: 2 }}>
+                                        {socialLinks.map((social, index) => (
+                                            <IconButton
+                                                key={index}
+                                                href={social.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                sx={{
+                                                    color: "text.secondary",
+                                                    border: "1px solid rgba(100, 255, 218, 0.3)",
+                                                    "&:hover": {
+                                                        color: "primary.main",
+                                                        bgcolor: "rgba(100, 255, 218, 0.1)",
+                                                    },
+                                                }}
+                                            >
+                                                {social.icon}
+                                            </IconButton>
+                                        ))}
+                                    </Box>
+                                </Box>
+                            </Paper>
+                            {/* </Grid> */}
 
                             <Grid item xs={12} md={6}>
                                 <Paper
@@ -297,6 +299,7 @@ const Contact = () => {
 
                                     <Box component="form" onSubmit={handleSubmit}>
                                         <Grid container spacing={3}>
+                                            {/* <Grid item xs={12} sm={6}> */}
                                             <Grid item xs={12} sm={6}>
                                                 <TextField
                                                     fullWidth
@@ -326,6 +329,7 @@ const Contact = () => {
                                                     }}
                                                 />
                                             </Grid>
+                                            {/* <Grid item xs={12} sm={6}> */}
                                             <Grid item xs={12} sm={6}>
                                                 <TextField
                                                     fullWidth
