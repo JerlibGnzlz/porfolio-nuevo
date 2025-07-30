@@ -303,8 +303,8 @@ const Contact = () => {
                                             <Grid item xs={12} sm={6}>
                                                 <TextField
                                                     fullWidth
-                                                    label={t("name")}
-                                                    name="name"
+                                                    label={t("nombre")}
+                                                    name="nombre"
                                                     value={formData.name}
                                                     onChange={handleChange}
                                                     required
@@ -332,7 +332,7 @@ const Contact = () => {
                                             <Grid item xs={12} sm={6}>
                                                 <TextField
                                                     fullWidth
-                                                    label="Email"
+                                                    label={t("email")}
                                                     name="email"
                                                     type="email"
                                                     value={formData.email}
@@ -362,9 +362,9 @@ const Contact = () => {
                                             <Grid item xs={12}>
                                                 <TextField
                                                     fullWidth
-                                                    label="Asunto"
+                                                    label={t("subject")}
                                                     name="subject"
-                                                    value={formData.subject}
+                                                    value={formData.name}
                                                     onChange={handleChange}
                                                     required
                                                     sx={{
@@ -391,7 +391,7 @@ const Contact = () => {
                                             <Grid item xs={12}>
                                                 <TextField
                                                     fullWidth
-                                                    label="Mensaje"
+                                                    label={t("message")}
                                                     name="message"
                                                     multiline
                                                     rows={4}
