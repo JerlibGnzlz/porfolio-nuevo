@@ -18,28 +18,42 @@ import {
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material"
 import ThemeToggle from "./ThemeToggle"
 import DownloadCV from "./DownloadCV"
-import { useLanguage } from "../contexts/LanguageContext"
 import LanguageToggle from "./LanguageToggle"
+import { useLanguage } from "../contexts/LanguageContext"
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false)
-    const [, setScrolled] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
+    const [activeSection, setActiveSection] = useState("hero")
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down("md"))
     const { t } = useLanguage()
 
     const menuItems = [
-        { label: t("home"), href: "#hero" },
-        { label: t("about"), href: "#about" },
-        { label: t("skills"), href: "#skills" },
-        { label: t("projects"), href: "#projects" },
-        { label: t("contact"), href: "#contact" },
+        { label: t("home"), href: "#hero", id: "hero" },
+        { label: t("about"), href: "#about", id: "about" },
+        { label: t("skills"), href: "#skills", id: "skills" },
+        { label: t("projects"), href: "#projects", id: "projects" },
+        { label: t("contact"), href: "#contact", id: "contact" },
     ]
 
     const handleScroll = () => {
         if (typeof window !== "undefined") {
             const isScrolled = window.scrollY > 50
             setScrolled(isScrolled)
+
+            const scrollPosition = window.scrollY + 200
+            for (const item of menuItems) {
+                const element = document.getElementById(item.id)
+                if (element) {
+                    const offsetTop = element.offsetTop
+                    const offsetHeight = element.offsetHeight
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(item.id)
+                        break
+                    }
+                }
+            }
         }
     }
 
@@ -47,15 +61,22 @@ const Navbar = () => {
         setMobileOpen(!mobileOpen)
     }
 
-    const scrollToSection = (href: string) => {
-        if (typeof document !== "undefined") {
-            const element = document.querySelector(href)
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth" })
-            }
+    const scrollToSection = (href: string, id: string) => {
+        const element = document.querySelector(href)
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" })
+            setActiveSection(id)
         }
         setMobileOpen(false)
     }
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            window.addEventListener("scroll", handleScroll)
+            handleScroll()
+            return () => window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
 
     const drawer = (
         <Box sx={{ width: 250, height: "100%", bgcolor: "background.paper" }}>
@@ -66,12 +87,28 @@ const Navbar = () => {
             </Box>
             <List>
                 {menuItems.map((item) => (
-                    <ListItem key={item.label} onClick={() => scrollToSection(item.href)}>
+                    <ListItem
+                        key={item.label}
+                        onClick={() => scrollToSection(item.href, item.id)}
+                        sx={{
+                            cursor: "pointer",
+                            borderRadius: 1,
+                            mx: 1,
+                            mb: 0.5,
+                            bgcolor: activeSection === item.id ? "primary.main" : "transparent",
+                            color: activeSection === item.id ? "background.default" : "text.primary",
+                            "&:hover": {
+                                bgcolor: activeSection === item.id ? "primary.main" : "rgba(100, 255, 218, 0.1)",
+                                color: activeSection === item.id ? "background.default" : "primary.main",
+                            },
+                        }}
+                    >
                         <ListItemText
                             primary={item.label}
                             sx={{
-                                cursor: "pointer",
-                                "&:hover": { color: "primary.main" },
+                                "& .MuiListItemText-primary": {
+                                    fontWeight: activeSection === item.id ? "bold" : "normal",
+                                },
                             }}
                         />
                     </ListItem>
@@ -85,27 +122,20 @@ const Navbar = () => {
         </Box>
     )
 
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            window.addEventListener("scroll", handleScroll)
-            return () => window.removeEventListener("scroll", handleScroll)
-        }
-    }, [])
-
     return (
         <>
             <AppBar
                 position="fixed"
                 elevation={0}
                 sx={{
-                    backgroundColor: "rgba(255, 255, 255, 0.2)", // fondo semitransparente
-                    backdropFilter: "blur(10px)",               // efecto de desenfoque
-                    WebkitBackdropFilter: "blur(10px)",         // compatibilidad Safari
+                    bgcolor: scrolled ? "rgba(255, 255, 255, 0.25)" : "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    transition: "all 0.3s ease",
                     borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
                     color: "text.primary",
                 }}
             >
-
                 <Toolbar>
                     <Typography
                         variant="h6"
@@ -116,38 +146,43 @@ const Navbar = () => {
                             color: "primary.main",
                             cursor: "pointer",
                         }}
-                        onClick={() => {
-                            if (typeof document !== "undefined") {
-                                scrollToSection("#hero")
-                            }
-                        }}
+                        onClick={() => scrollToSection("#hero", "hero")}
                     >
                         {"<Jerlib.dev />"}
                     </Typography>
 
                     {isMobile ? (
-                        <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle}>
+                        <IconButton color="inherit" edge="start" onClick={handleDrawerToggle}>
                             <MenuIcon />
                         </IconButton>
                     ) : (
-                        <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+                        <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                             {menuItems.map((item) => (
                                 <Button
                                     key={item.label}
-                                    color="inherit"
-                                    onClick={() => scrollToSection(item.href)}
+                                    onClick={() => scrollToSection(item.href, item.id)}
                                     sx={{
+                                        color: activeSection === item.id ? "background.default" : "text.primary",
+                                        bgcolor: activeSection === item.id ? "primary.main" : "transparent",
+                                        fontWeight: activeSection === item.id ? "bold" : "normal",
+                                        px: 2.5,
+                                        py: 1,
+                                        borderRadius: 2,
+                                        transition: "all 0.3s ease",
                                         "&:hover": {
-                                            color: "primary.main",
+                                            bgcolor: activeSection === item.id ? "primary.dark" : "rgba(100, 255, 218, 0.1)",
+                                            color: activeSection === item.id ? "background.default" : "primary.main",
                                         },
                                     }}
                                 >
                                     {item.label}
                                 </Button>
                             ))}
-                            <LanguageToggle />
-                            <ThemeToggle />
-                            <DownloadCV variant="icon" />
+                            <Box sx={{ ml: 2, display: "flex", gap: 1 }}>
+                                <LanguageToggle />
+                                <ThemeToggle />
+                                <DownloadCV variant="icon" />
+                            </Box>
                         </Box>
                     )}
                 </Toolbar>
