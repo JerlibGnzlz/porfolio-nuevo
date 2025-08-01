@@ -47,6 +47,9 @@ const translations = {
             "⚡ Me destaco por mi proactividad, sociabilidad, colaboración y curiosidad constante, lo que me impulsa a mantenerme en aprendizaje continuo.",
         aboutText3: "Aquí hay algunas tecnologías con las que he estado trabajando recientemente:",
 
+        expandText: "Expandir",
+        collapseText: "Contraer",
+
         // Skills
         skillsTitle: "Habilidades",
         frontend: "Frontend",
@@ -124,6 +127,9 @@ const translations = {
         aboutText2:
             "⚡ Fast-forward to today, I've had the privilege of working at a startup, a large corporation, and a student product studio. My main focus these days is building accessible and inclusive products and digital experiences for a variety of clients.",
         aboutText3: "Here are a few technologies I've been working with recently:",
+
+        expandText: "Expand",
+        collapseText: "Collapse",
 
         // Skills
         skillsTitle: "Skills",
