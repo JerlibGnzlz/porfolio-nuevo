@@ -176,10 +176,10 @@ const Projects = () => {
                         <Typography
                             variant="body1"
                             sx={{
-                                mb: 8,
+                                mb: 2,
                                 textAlign: "center",
                                 color: "text.secondary",
-                                maxWidth: 600,
+                                maxWidth: 400,
                                 mx: "auto",
                                 fontSize: "1.1rem",
                                 "&::after": {
@@ -189,15 +189,13 @@ const Projects = () => {
                                     left: "50%",
                                     transform: "translateX(-50%)",
                                     width: 60,
-                                    height: 4,
+                                    height: 2,
                                     bgcolor: "primary.main",
                                     borderRadius: 2,
                                 },
                             }}
                         >
-                            Explora una selección de mis proyectos más destacados
                         </Typography>
-
                         <Box sx={{ position: "relative", maxWidth: 900, mx: "auto" }}>
                             <Card
                                 sx={{
@@ -273,7 +271,7 @@ const Projects = () => {
                                 <Box
                                     sx={{
                                         position: "relative",
-                                        height: 400,
+                                        height: 300,
                                         overflow: "hidden",
                                         m: 3,
                                         borderRadius: 3,
@@ -325,22 +323,6 @@ const Projects = () => {
                                             },
                                         }}
                                     >
-                                        <IconButton
-                                            href={projects[currentProject].liveUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            sx={{
-                                                bgcolor: "rgba(255, 255, 255, 0.9)",
-                                                color: "primary.main",
-                                                backdropFilter: "blur(10px)",
-                                                "&:hover": {
-                                                    bgcolor: "rgba(100, 255, 218, 0.2)",
-                                                    transform: "scale(1.1)",
-                                                },
-                                            }}
-                                        >
-                                            <OpenInNew fontSize="small" />
-                                        </IconButton>
                                     </Box>
                                 </Box>
 
@@ -372,7 +354,6 @@ const Projects = () => {
                                         {projects[currentProject].description}
                                     </Typography>
 
-                                    {/* Stack tecnológico */}
                                     <Box sx={{ mb: 4 }}>
                                         <Typography
                                             variant="subtitle2"
@@ -383,7 +364,7 @@ const Projects = () => {
                                                 fontSize: "0.9rem",
                                             }}
                                         >
-                                            Stack Tecnológico
+                                            {t("stackTecnologicoTitle")}
                                         </Typography>
                                         <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
                                             {projects[currentProject].technologies.map((tech, index) => (
@@ -563,9 +544,8 @@ const Projects = () => {
                     </Box>
                 </Fade>
             </Container>
-        </Box>
+        </Box >
     )
 }
 
 export default Projects
-

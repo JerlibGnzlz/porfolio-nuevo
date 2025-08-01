@@ -63,12 +63,12 @@ const translations = {
         projectsTitle: "Proyectos Destacados",
         ecommerceTitle: "E-Commerce",
         ecommerceDesc:
-            "Es una Ecommerce de ropa con categorias de hombres, mujeres, niños, Unisex y accesorios donde el usuario puede logearse y ser admin de su propia cuenta y de igual manera podrá registrarse a través de Google, donde podrá agregar al carrito los productos que requiera según el stock y una vez guardado podra validar su compra por mercado pago y así multiple funciones que allí encontraras.",
+            "Ecommerce de ropa con categorías para todos. Permite registro (incluyendo Google), gestión de cuenta, carrito según stock y pagos con Mercado Pago.",
         taskAppTitle: "Videos-app",
-        taskAppDesc: "Creación de la base de datos con PostgreSQL - Sequelize Utilice una API externa de datos para mostrar al usuario información sobre la temática, desarrolada tanto en Backend con NodeJS y Express, como en el Frontend con React- Redux Diseño UX/UI con CSS puro.Features: Filtrado - Busqueda - formulario controlado - creacion de games.",
-        weatherTitle: "Fitness Center Gym",
+        taskAppDesc: "Base de datos con PostgreSQL y Sequelize. API externa para mostrar datos. Backend con NodeJS/Express y frontend con React-Redux. UX/UI con CSS puro. Funciones: filtrado, búsqueda, formulario y creación de juegos.",
+        weatherTitle: "Gimnasios",
         weatherDesc:
-            "Este sistema de gestión fue creado con el propósito de proporcionar una plataforma fácil de usar para los administradores de gimnasios. Les permite tener un control completo sobre el flujo de clientes, gestionar ingresos y egresos, estafa",
+            "Sistema para que administradores de gimnasios controlen clientes, ingresos y egresos fácilmente.",
         socialTitle: "Connecta",
         socialDesc:
             "Es una aplicación web que permite la comunicación y colaboración en línea, a travésde herramientas para la mensajería instantánea y la creación de espacios detrabajo y canales para una comunicacion eficiente.",
@@ -77,6 +77,8 @@ const translations = {
 
         sanJoseTitle: "Cooperativa San José",
         sanJoseDesc: "Aplicación de gestión de tareas con funcionalidades de arrastrar y soltar, colaboración en tiempo real y notificaciones push. Construida con Next.js y Firebase.",
+
+        stackTecnologicoTitle: "Stack Tecnológico",
 
         // Contact
         contactTitle: "Contacto",
@@ -144,13 +146,13 @@ const translations = {
         projectsTitle: "Featured Projects",
         ecommerceTitle: "E-Commerce",
         ecommerceDesc:
-            "It's an e-commerce store selling clothing with categories for men, women, children, unisex, and accessories. Users can log in and manage their own account. They can also register through Google. They can add the products they need to their cart, depending on the stock available. Once saved, they can validate their purchase through Mercado Pago, along with a variety of other features.",
+            "Clothing ecommerce with categories for everyone. Supports Google login, account management, stock-aware cart, and Mercado Pago payments.",
         taskAppTitle: "Videos-app",
         taskAppDesc:
-            "Database creation with PostgreSQL - Sequelize. Use an external data API to display information about the topic to the user. Developed both in the backend with NodeJS and Express, and in the frontend with React-Redux. UX/UI design with pure CSS. Features: Filtering - Search - Controlled form - Game creation.",
-        weatherTitle: "Fitness Center Gym",
+            "PostgreSQL & Sequelize database. External API for data display. Backend with NodeJS/Express and frontend with React-Redux. Pure CSS UX/UI. Features: filtering, search, controlled form, and game creation.",
+        weatherTitle: "Fitness Center",
         weatherDesc:
-            "This management system was created with the purpose of providing an easy-to-use platform for gym managers. It allows them to have complete control over the flow of clients, manage income and expenses,and.",
+            "System for gym admins to easily manage clients, income, and expenses.",
         socialTitle: "Connecta",
         socialDesc:
             "It is a web application that enables online communication and collaboration through instant messaging tools and the creation of workspaces and channels for efficient communication.",
@@ -160,6 +162,9 @@ const translations = {
 
         sanJoseTitle: "San José Cooperative",
         sanJoseDesc: "Task management app with drag-and-drop functionality, real-time collaboration, and push notifications. Built with Next.js and Firebase.",
+
+
+        stackTecnologicoTitle: "Technology Stack",
 
         // Contact
         contactTitle: "Contact",
