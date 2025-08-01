@@ -95,19 +95,32 @@ const Navbar = () => {
                             borderRadius: 1,
                             mx: 1,
                             mb: 0.5,
-                            bgcolor: activeSection === item.id ? "primary.main" : "transparent",
-                            color: activeSection === item.id ? "background.default" : "text.primary",
+                            position: "relative",
+                            color: activeSection === item.id ? "primary.main" : "text.primary",
                             "&:hover": {
-                                bgcolor: activeSection === item.id ? "primary.main" : "rgba(100, 255, 218, 0.1)",
-                                color: activeSection === item.id ? "background.default" : "primary.main",
+                                bgcolor: "rgba(100, 255, 218, 0.05)",
+                                color: "primary.main",
+                            },
+                            "&::after": {
+                                content: '""',
+                                position: "absolute",
+                                bottom: 0,
+                                left: "50%",
+                                transform: "translateX(-50%)",
+                                width: activeSection === item.id ? "80%" : "0%",
+                                height: "2px",
+                                bgcolor: "primary.main",
+                                transition: "width 0.3s ease",
                             },
                         }}
                     >
                         <ListItemText
                             primary={item.label}
                             sx={{
+                                textAlign: "center",
                                 "& .MuiListItemText-primary": {
-                                    fontWeight: activeSection === item.id ? "bold" : "normal",
+                                    fontWeight: activeSection === item.id ? "600" : "normal",
+                                    fontSize: "0.95rem",
                                 },
                             }}
                         />
@@ -162,16 +175,33 @@ const Navbar = () => {
                                     key={item.label}
                                     onClick={() => scrollToSection(item.href, item.id)}
                                     sx={{
-                                        color: activeSection === item.id ? "background.default" : "text.primary",
-                                        bgcolor: activeSection === item.id ? "primary.main" : "transparent",
-                                        fontWeight: activeSection === item.id ? "bold" : "normal",
+                                        color: activeSection === item.id ? "primary.main" : "text.primary",
+                                        fontWeight: activeSection === item.id ? "600" : "normal",
                                         px: 2.5,
                                         py: 1,
-                                        borderRadius: 2,
+                                        borderRadius: 0,
+                                        position: "relative",
+                                        textTransform: "none",
+                                        fontSize: "0.95rem",
+                                        minWidth: "auto",
                                         transition: "all 0.3s ease",
                                         "&:hover": {
-                                            bgcolor: activeSection === item.id ? "primary.dark" : "rgba(100, 255, 218, 0.1)",
-                                            color: activeSection === item.id ? "background.default" : "primary.main",
+                                            bgcolor: "transparent",
+                                            color: "primary.main",
+                                        },
+                                        "&::after": {
+                                            content: '""',
+                                            position: "absolute",
+                                            bottom: 0,
+                                            left: "50%",
+                                            transform: "translateX(-50%)",
+                                            width: activeSection === item.id ? "100%" : "0%",
+                                            height: "2px",
+                                            bgcolor: "primary.main",
+                                            transition: "width 0.3s ease",
+                                        },
+                                        "&:hover::after": {
+                                            width: "100%",
                                         },
                                     }}
                                 >
@@ -204,3 +234,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+
