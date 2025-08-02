@@ -26,10 +26,12 @@ import {
     SiPostgresql,
     SiMysql,
     SiSwagger,
-    SiPostman,
     SiJira,
     SiLinux,
+    SiKotlin,
+    SiReactquery,
     SiScrumalliance,
+    SiAngular,
 } from "react-icons/si";
 import { ReactNode, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -41,6 +43,7 @@ const techIconMap: { [key: string]: ReactNode } = {
     CSS: <SiCss3 />,
     TypeScript: <SiTypescript />,
     React: <SiReact />,
+    Angular: <SiAngular />,
     "Next.js": <SiNextdotjs />,
     "Redux Toolkit": <SiRedux />,
     "React Context": <SiReact />,
@@ -55,8 +58,9 @@ const techIconMap: { [key: string]: ReactNode } = {
     MySQL: <SiMysql />,
     Scrum: <SiScrumalliance />,
     Swagger: <SiSwagger />,
-    Postman: <SiPostman />,
     Jira: <SiJira />,
+    Kotlin: <SiKotlin />,
+    "React Query": <SiReactquery />,
     Linux: <SiLinux />,
 };
 
