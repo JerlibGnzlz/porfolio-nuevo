@@ -299,7 +299,6 @@ const Contact = () => {
 
                                     <Box component="form" onSubmit={handleSubmit}>
                                         <Grid container spacing={3}>
-                                            {/* <Grid item xs={12} sm={6}> */}
                                             <Grid item xs={12} sm={6}>
                                                 <TextField
                                                     fullWidth
@@ -450,7 +449,7 @@ const Contact = () => {
                     </Box>
                 </Fade>
             </Container>
-        </Box>
+        </Box >
     )
 }
 
