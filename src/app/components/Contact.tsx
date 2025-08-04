@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid'
 
 const Contact = () => {
     const [formData, setFormData] = useState({
-        name: "",
+        nombre: "",
         email: "",
         subject: "",
         message: "",
@@ -56,13 +56,15 @@ const Contact = () => {
             const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
             const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
+
             if (!serviceId || !templateId || !publicKey) {
                 throw new Error("EmailJS environment variables are not set.")
             }
 
+
             const templateParams = {
-                from_name: formData.name,
-                from_email: formData.email,
+                name: formData.nombre,
+                email: formData.email,
                 subject: formData.subject,
                 message: formData.message,
                 to_name: t("name"),
@@ -70,6 +72,9 @@ const Contact = () => {
 
             // Descomenta la siguiente línea cuando tengas configurado EmailJS
             await emailjs.send(serviceId, templateId, templateParams, publicKey)
+
+
+
 
             // Simulación de envío exitoso para demo
             await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -80,7 +85,7 @@ const Contact = () => {
             })
 
             setFormData({
-                name: "",
+                nombre: "",
                 email: "",
                 subject: "",
                 message: "",
@@ -91,9 +96,9 @@ const Contact = () => {
             }, 3000)
 
 
-            setFormData({ name: "", email: "", subject: "", message: "" })
-        } catch (error) {
-            console.error("Error al enviar el mensaje:", error)
+            setFormData({ nombre: "", email: "", subject: "", message: "" })
+        } catch (error: any) {
+            console.error("Error al enviar el mensaje:", error?.text || error?.message || error)
             setAlert({
                 type: "error",
                 message: t("errorMessage"),
@@ -304,7 +309,7 @@ const Contact = () => {
                                                     fullWidth
                                                     label={t("nombre")}
                                                     name="nombre"
-                                                    value={formData.name}
+                                                    value={formData.nombre}
                                                     onChange={handleChange}
                                                     required
                                                     sx={{
@@ -363,7 +368,7 @@ const Contact = () => {
                                                     fullWidth
                                                     label={t("subject")}
                                                     name="subject"
-                                                    value={formData.name}
+                                                    value={formData.subject}
                                                     onChange={handleChange}
                                                     required
                                                     sx={{
