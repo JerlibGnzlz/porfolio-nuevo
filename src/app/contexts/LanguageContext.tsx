@@ -34,17 +34,17 @@ const translations = {
         // Hero
         hello: "Hola, mi nombre es",
         name: "Jerlib Gonzalez",
-        role: "Desarrollador Full Stack",
+        role: "Desarrollador Full Stack & Quality Engineer",
         heroDescription:
-            "👋 Apasionado por crear experiencias digitales accesibles, modernas y centradas en el usuario. Con enfoque en la innovación, desarrollo soluciones escalables que aportan valor real a cada proyecto. 🚀 React · Next.js · Node.js · TypeScript · MongoDB",
+            "👋 Apasionado por crear experiencias digitales accesibles, modernas y centradas en el usuario. Con un enfoque en la innovación, desarrollo soluciones escalables y de calidad que aportan valor real a cada proyecto. 🚀 React · Next.js · Node.js · TypeScript · MongoDB · JMeter · Cypress · Playwright",
         viewWork: "Ver mi trabajo",
 
         // About
         aboutTitle: "Acerca de mí",
         aboutText1:
-            "Soy Desarrollador Full Stack con una sólida base técnica y un enfoque constante en la innovación. Tengo experiencia en el relevamiento y análisis de requerimientos, y la capacidad de traducir necesidades del negocio en soluciones técnicas efectivas y sostenibles. Integro tecnologías emergentes para optimizar procesos, mejorar la experiencia del usuario y aportar valor desde una perspectiva tanto técnica como funcional.",
+            "Soy Desarrollador Full Stack y Quality Engineer (QE) con una sólida base técnica y un enfoque constante en la innovación. Tengo experiencia en el relevamiento y análisis de requerimientos, así como en la validación y aseguramiento de la calidad de software, traduciendo necesidades del negocio en soluciones efectivas, sostenibles y de alta calidad. Integra tecnologías emergentes para optimizar procesos, mejorar la experiencia del usuario y aportar valor funcional desde una perspectiva tanto técnica como, combinando desarrollo y prácticas de testing orientadas a la excelencia.",
         aboutText2:
-            "⚡ Me destaco por mi proactividad, sociabilidad, colaboración y curiosidad constante, lo que me impulsa a mantenerme en aprendizaje continuo.",
+            "Me destaco por mi proactividad, sociabilidad, colaboración y curiosidad constante, lo que me impulsa a mantenerme en aprendizaje continuo y a aportar valor tanto en el desarrollo como en la calidad de los proyectos.",
         aboutText3: "Aquí hay algunas tecnologías con las que he estado trabajando recientemente:",
 
         expandText: "...Expandir",
@@ -117,17 +117,17 @@ const translations = {
         // Hero
         hello: "Hi, my name is",
         name: "Jerlib Gonzalez",
-        role: "Full Stack Developer",
+        role: "Full Stack Developer & Quality Engineer",
         heroDescription:
-            "👋 Passionate about creating accessible, modern, and user-centric digital experiences. With a focus on innovation, I develop scalable solutions that bring real value to each project. 🚀 React · Next.js · Node.js · TypeScript · MongoDB",
+            "👋 Passionate about creating accessible, modern, and user-centric digital experiences. With a focus on innovation, I develop scalable, high-quality solutions that bring real value to each project. 🚀 React · Next.js · Node.js · TypeScript · MongoDB · JMeter · Cypress · Playwright",
         viewWork: "View my work",
 
         // About
         aboutTitle: "About me",
         aboutText1:
-            "I am a Full Stack Developer with a solid technical foundation and a constant focus on innovation. I have experience in requirements gathering and analysis, and the ability to translate business needs into effective and sustainable technical solutions. I integrate emerging technologies to optimize processes, improve user experience, and add value from both a technical and functional perspective.",
+            "I am a Full Stack Developer and Quality Engineer (QE) with a solid technical foundation and a constant focus on innovation. I have experience in requirements collection and analysis, as well as software validation and quality assurance, translating business needs into effective, sustainable, and high-quality solutions. I integrate emerging technologies to optimize processes, improve user experience, and provide functional value from both a technical and avant-garde perspective, combining development and testing practices oriented towards excellence.",
         aboutText2:
-            "⚡ Fast-forward to today, I've had the privilege of working at a startup, a large corporation, and a student product studio. My main focus these days is building accessible and inclusive products and digital experiences for a variety of clients.",
+            "I stand out for my proactivity, sociability, collaboration, and constant curiosity, which drives me to continuously learn and add value to both the development and quality of projects.",
         aboutText3: "Here are a few technologies I've been working with recently:",
 
         expandText: "...Expand",

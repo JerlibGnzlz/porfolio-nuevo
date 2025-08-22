@@ -32,6 +32,10 @@ import {
     SiReactquery,
     SiScrumalliance,
     SiAngular,
+    SiApachejmeter,
+    SiCypress,
+    SiPostman,
+    SiJest,
 } from "react-icons/si";
 import { ReactNode, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -62,6 +66,10 @@ const techIconMap: { [key: string]: ReactNode } = {
     Kotlin: <SiKotlin />,
     "React Query": <SiReactquery />,
     Linux: <SiLinux />,
+    JMeter: <SiApachejmeter />,
+    Cypress: <SiCypress />,
+    Postman: <SiPostman />,
+    Jest: <SiJest />,
 };
 
 const About = () => {
