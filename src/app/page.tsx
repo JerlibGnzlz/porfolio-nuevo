@@ -10,21 +10,24 @@ import Projects from "./components/Projects"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import { LanguageProvider } from "./contexts/LanguageContext"
+import { LoadingProvider } from "./contexts/LoadingContext"
 
 export default function Portfolio() {
   return (
     <LanguageProvider>
       <ThemeProvider>
-        <CssBaseline />
-        <Box sx={{ minHeight: "100vh" }}>
-          <Navbar />
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-          <Footer />
-        </Box>
+        <LoadingProvider>
+          <CssBaseline />
+          <Box sx={{ minHeight: "100vh" }}>
+            <Navbar />
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Contact />
+            <Footer />
+          </Box>
+        </LoadingProvider>
       </ThemeProvider>
     </LanguageProvider>
   )

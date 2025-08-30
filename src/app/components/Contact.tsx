@@ -34,9 +34,7 @@ const Contact = () => {
         setMounted(true)
     }, [])
 
-    if (!mounted) {
-        return <div>Loading...</div>
-    }
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({

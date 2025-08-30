@@ -38,11 +38,11 @@ const Projects = () => {
 
     useEffect(() => {
         setMounted(true)
+
     }, [])
 
-    if (!mounted) {
-        return <div>Loading...</div>
-    }
+
+
 
     const projects = [
         {
@@ -136,6 +136,9 @@ const Projects = () => {
                 return "#64ffda"
         }
     }
+
+
+
 
     return (
         <Box

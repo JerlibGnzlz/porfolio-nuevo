@@ -19,9 +19,9 @@ const Skills = () => {
         setMounted(true)
     }, [])
 
-    if (!mounted) {
-        return <div>Loading...</div>
-    }
+    // if (!mounted) {
+    //     return <div>Loading...</div>
+    // }
 
     const skillCategories = [
         {

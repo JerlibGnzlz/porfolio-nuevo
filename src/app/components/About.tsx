@@ -41,6 +41,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
 
+
 const techIconMap: { [key: string]: ReactNode } = {
     "JavaScript (ES6+)": <SiJavascript />,
     HTML: <SiHtml5 />,
@@ -76,6 +77,7 @@ const About = () => {
     const [mounted, setMounted] = useState(false);
     const [showFullText, setShowFullText] = useState(false);
 
+
     const { ref, inView } = useInView({
         threshold: 0.3,
         triggerOnce: true,
@@ -85,12 +87,10 @@ const About = () => {
     const { t } = useLanguage();
 
     useEffect(() => {
-        setMounted(true);
+        setMounted(true)
+
     }, []);
 
-    if (!mounted) {
-        return <div>Loading...</div>;
-    }
 
     const truncateText = (text: string, maxLength: number) => {
         if (text.length <= maxLength) return text;
