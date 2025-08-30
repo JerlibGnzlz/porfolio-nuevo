@@ -199,10 +199,10 @@ interface LanguageProviderProps {
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
     const [language, setLanguage] = useState<Language>("es")
-    const [, setMounted] = useState(false)
+    const [, mounted] = useState(false)
 
     useEffect(() => {
-        setMounted(true)
+        mounted(true)
         // Cargar idioma guardado del localStorage
         const savedLanguage = localStorage.getItem("language") as Language
         if (savedLanguage) {
