@@ -1,6 +1,6 @@
 "use client"
 import type React from "react"
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect, useMemo } from "react"
 
 type Language = "es" | "en"
 
@@ -228,5 +228,15 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         return null
     }
 
-    return <LanguageContext.Provider value={{ language, toggleLanguage, t }}>{children}</LanguageContext.Provider>
+    const contextValue = useMemo(() => ({
+        language,
+        toggleLanguage,
+        t,
+    }), [language]);
+
+    return (
+        <LanguageContext.Provider value={contextValue}>
+            {children}
+        </LanguageContext.Provider>
+    )
 }
