@@ -522,7 +522,7 @@ const Projects = () => {
                             >
                                 {projects.map((project, index) => (
                                     <Box
-                                        key={project.image}
+                                        key={project.year}
                                         onClick={() => setCurrentProject(index)}
                                         sx={{
                                             width: index === currentProject ? 40 : 12,
