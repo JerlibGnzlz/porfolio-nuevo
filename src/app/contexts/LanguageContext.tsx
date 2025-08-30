@@ -198,41 +198,38 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-    const [language, setLanguage] = useState<Language>("es")
-    const [, setMounted] = useState(false);
+    const [language, setLanguage] = useState<Language>("es");
 
     useEffect(() => {
-        setMounted(true)
         // Cargar idioma guardado del localStorage
-        const savedLanguage = localStorage.getItem("language") as Language
+        const savedLanguage = localStorage.getItem("language") as Language;
         if (savedLanguage) {
-            setLanguage(savedLanguage)
+            setLanguage(savedLanguage);
         } else {
             // Detectar idioma del navegador
-            const browserLanguage = navigator.language.startsWith("es") ? "es" : "en"
-            setLanguage(browserLanguage)
+            const browserLanguage = navigator.language.startsWith("es") ? "es" : "en";
+            setLanguage(browserLanguage);
         }
-    }, [])
+    }, []);
 
     const toggleLanguage = () => {
-        const newLanguage = language === "es" ? "en" : "es"
-        setLanguage(newLanguage)
-        localStorage.setItem("language", newLanguage)
-    }
+        const newLanguage = language === "es" ? "en" : "es";
+        setLanguage(newLanguage);
+        localStorage.setItem("language", newLanguage);
+    };
 
     const t = (key: string): string => {
-        return translations[language][key as keyof (typeof translations)[typeof language]] || key
-    }
+        return translations[language][key as keyof (typeof translations)[typeof language]] || key;
+    };
 
+    const contextValue = useMemo(
+        () => ({ language, toggleLanguage, t }),
+        [language]
+    );
 
     return (
-        <LanguageContext.Provider value={useMemo(() => ({
-            language,
-            toggleLanguage,
-            t,
-        }), [language])}>
+        <LanguageContext.Provider value={contextValue}>
             {children}
         </LanguageContext.Provider>
     );
-
-}
+};
