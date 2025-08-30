@@ -93,9 +93,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
         },
     })
 
-    if (!mounted) {
-        return null
-    }
+
 
     return (
         <ThemeContext.Provider value={useMemo(() => ({
