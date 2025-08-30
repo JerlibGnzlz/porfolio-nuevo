@@ -199,7 +199,7 @@ interface LanguageProviderProps {
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
     const [language, setLanguage] = useState<Language>("es")
-    const [_, setMounted] = useState(false)
+    const [, setMounted] = useState(false)
 
     useEffect(() => {
         setMounted(true)

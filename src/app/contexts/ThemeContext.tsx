@@ -26,7 +26,7 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     const [mode, setMode] = useState<ThemeMode>("dark")
-    const [_, setMounted] = useState(false)
+    const [, setMounted] = useState(false)
 
     useEffect(() => {
         setMounted(true)
