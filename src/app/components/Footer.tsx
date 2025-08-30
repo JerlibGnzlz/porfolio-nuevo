@@ -51,9 +51,9 @@ const Footer = () => {
                     </Typography>
 
                     <Box sx={{ display: "flex", gap: 2 }}>
-                        {socialLinks.map((social, index) => (
+                        {socialLinks.map((social, _) => (
                             <IconButton
-                                key={index}
+                                key={social.url}
                                 href={social.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
