@@ -224,15 +224,6 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         return translations[language][key as keyof (typeof translations)[typeof language]] || key
     }
 
-    // if (!mounted) {
-    //     return null
-    // }
-
-    // const contextValue = useMemo(() => ({
-    //     language,
-    //     toggleLanguage,
-    //     t,
-    // }), [language]);
 
     return (
         <LanguageContext.Provider value={useMemo(() => ({
