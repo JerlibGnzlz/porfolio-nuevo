@@ -255,7 +255,7 @@ const Contact = () => {
                                         <Box sx={{ display: "flex", gap: 2 }}>
                                             {socialLinks.map((social, index) => (
                                                 <IconButton
-                                                    key={index}
+                                                    key={social.url}
                                                     href={social.url}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
