@@ -17,7 +17,7 @@ import {
     useMediaQuery,
     Stack,
 } from "@mui/material"
-import { ChevronLeft, ChevronRight, Launch, OpenInNew, Code } from "@mui/icons-material"
+import { ChevronLeft, ChevronRight, Launch, Code } from "@mui/icons-material"
 import { useInView } from "react-intersection-observer"
 import { useLanguage } from "../contexts/LanguageContext"
 import { useRouter } from "next/navigation"
