@@ -1,6 +1,6 @@
 "use client"
 import type React from "react"
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect, use, useMemo } from "react"
 import { createTheme, ThemeProvider as MuiThemeProvider } from "@mui/material/styles"
 
 type ThemeMode = "light" | "dark"
@@ -98,7 +98,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     }
 
     return (
-        <ThemeContext.Provider value={{ mode, toggleTheme }}>
+        <ThemeContext.Provider value={useMemo(() => ({
+            mode, toggleTheme
+        }),
+            [mode, toggleTheme])}>
             <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
         </ThemeContext.Provider>
     )
