@@ -204,9 +204,9 @@ const Contact = () => {
                                         {t("contactInfo")}
                                     </Typography>
 
-                                    {contactInfo.map((info, index) => (
+                                    {contactInfo.map((info, _) => (
                                         <Box
-                                            key={index}
+                                            key={info.title}
                                             sx={{
                                                 display: "flex",
                                                 alignItems: "center",
