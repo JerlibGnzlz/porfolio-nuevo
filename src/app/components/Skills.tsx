@@ -1,7 +1,7 @@
 "use client"
 import { Box, Typography, Container, Grid, Paper, LinearProgress, Fade } from "@mui/material"
 import { useInView } from "react-intersection-observer"
-import { Code, Web, Storage, CloudQueue, DeviceHub, BrushOutlined } from "@mui/icons-material"
+import { Code, Web, Storage, CloudQueue, DeviceHub, BrushOutlined, BugReportOutlined } from "@mui/icons-material"
 import { useEffect, useState } from "react"
 import { useLanguage } from "../contexts/LanguageContext"
 
@@ -88,6 +88,17 @@ const Skills = () => {
                 { name: "Tailwind CSS", level: 90 },
             ],
         },
+        {
+            title: t("testing"), // o "QA" según tu traducción
+            icon: <BugReportOutlined sx={{ fontSize: 40, color: "primary.main" }} />,
+            skills: [
+                { name: "JMeter", level: 85 },
+                { name: "SonarQube", level: 80 },
+                { name: "Postman", level: 90 },
+                { name: "Selenium", level: 75 },
+            ],
+        }
+
     ]
 
     return (
