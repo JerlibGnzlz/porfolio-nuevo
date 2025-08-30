@@ -1,5 +1,5 @@
 "use client"
-import { createContext, useContext, useState, ReactNode } from "react"
+import { createContext, useContext, useState, ReactNode, useMemo, useCallback } from "react"
 import LoadingSpinner from "../components/LoadingSpinner"
 
 interface LoadingContextType {
@@ -15,18 +15,25 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
     const [loading, setLoading] = useState(false)
     const [shownOnce, setShownOnce] = useState(false)
 
-    const showLoading = () => {
+    const showLoading = useCallback(() => {
         if (!shownOnce) {
             setLoading(true)
-            setShownOnce(true) // marca que ya se mostró
+            setShownOnce(true)
         }
-    }
+    }, [shownOnce])
 
-    const hideLoading = () => setLoading(false)
+    const hideLoading = useCallback(() => setLoading(false), [])
+
+    const value = useMemo(() => ({
+        loading,
+        showLoading,
+        hideLoading,
+        shownOnce
+    }), [loading, showLoading, hideLoading, shownOnce])
 
     return (
-        <LoadingContext.Provider value={{ loading, showLoading, hideLoading, shownOnce }}>
-            {loading && <LoadingSpinner />} {/* solo se mostrará si loading es true */}
+        <LoadingContext.Provider value={value}>
+            {loading && <LoadingSpinner />}
             {children}
         </LoadingContext.Provider>
     )
