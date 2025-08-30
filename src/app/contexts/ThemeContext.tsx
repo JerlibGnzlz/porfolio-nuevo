@@ -26,10 +26,10 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     const [mode, setMode] = useState<ThemeMode>("dark")
-    const [, setMounted] = useState(false)
+    const [, mounted] = useState(false)
 
     useEffect(() => {
-        setMounted(true)
+        mounted(true)
         // Cargar tema guardado del localStorage
         const savedTheme = localStorage.getItem("theme") as ThemeMode
         if (savedTheme) {
