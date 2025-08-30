@@ -228,15 +228,20 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     //     return null
     // }
 
-    const contextValue = useMemo(() => ({
-        language,
-        toggleLanguage,
-        t,
-    }), [language]);
+    // const contextValue = useMemo(() => ({
+    //     language,
+    //     toggleLanguage,
+    //     t,
+    // }), [language]);
 
     return (
-        <LanguageContext.Provider value={contextValue}>
+        <LanguageContext.Provider value={useMemo(() => ({
+            language,
+            toggleLanguage,
+            t,
+        }), [language])}>
             {children}
         </LanguageContext.Provider>
-    )
+    );
+
 }
