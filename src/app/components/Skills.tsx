@@ -19,9 +19,7 @@ const Skills = () => {
         setMounted(true)
     }, [])
 
-    // if (!mounted) {
-    //     return <div>Loading...</div>
-    // }
+
 
     const skillCategories = [
         {
@@ -89,7 +87,7 @@ const Skills = () => {
             ],
         },
         {
-            title: t("testing"), // o "QA" según tu traducción
+            title: t("testing"),
             icon: <BugReportOutlined sx={{ fontSize: 40, color: "primary.main" }} />,
             skills: [
                 { name: "JMeter", level: 85 },
